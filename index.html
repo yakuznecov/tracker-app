@@ -13,6 +13,42 @@
 </head>
 
 <body>
+	<div class="app">
+		<div class="panel">
+			<img class='logo' src="images/logo.svg" alt="logo">
+			<nav class="menu">
+				<div class="menu__list"></div>
+				<button class="menu__add">
+					<img src="images/add.svg" alt="add">
+				</button>
+			</nav>
+		</div>
+		<div class="content">
+			<header>
+				<h1 class='h1'>-</h1>
+				<div class="progress">
+					<div class="progress__text">
+						<div class='progress_name'>Прогресс</div>
+						<div class='progress_percent'>%</div>
+					</div>
+					<div class="progress__bar">
+						<div class="progress__bar_cover"></div>
+					</div>
+				</div>
+			</header>
+			<main>
+				<div id="days"></div>
+				<div class="habit">
+					<div class="day">День _</div>
+					<form class="inner__form" onsubmit='addDays(event)'>
+						<input name='comment' class='input' type="text" placeholder='Комментарий'>
+						<img class='input_icon' src="images/comment.svg" alt="comment">
+						<button class="complete" type='submit'>Готово</button>
+					</form>
+				</div>
+			</main>
+		</div>
+	</div>
 
 	<script src='js/app.js'></script>
 </body>
