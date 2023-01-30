@@ -81,7 +81,7 @@ function rerenderContent(activeHabit) {
 		element.classList.add('habit');
 		element.innerHTML = `<div class="day">День ${Number(index) + 1}</div>
 		<div class="comment">${activeHabit.days[index].comment}</div>
-		<button class="delete">
+		<button class="delete" onclick='deleteDay(${index})'>
 			<img src="images/delete.svg" alt="delete">
 		</button>`;
 		page.content.daysContainer.appendChild(element);
@@ -125,6 +125,22 @@ function addDays(event) {
 	});
 
 	form['comment'].value = '';
+	rerender(globalActiveHabitId);
+	saveData();
+}
+
+function deleteDay(index) {
+	habits = habits.map(habit => {
+		if (habit.id === globalActiveHabitId) {
+			habit.days.splice(index, 1);
+			return {
+				...habit,
+				days: habit.days
+			};
+		}
+		return habit;
+	});
+
 	rerender(globalActiveHabitId);
 	saveData();
 }
